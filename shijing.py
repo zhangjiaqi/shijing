@@ -22,9 +22,11 @@ with open('23873-0.txt', encoding = 'utf-8') as shijing:
             # 统计诗句出现次数。
             
             
+# 按诗句出现次数由高到低排序。
 sentences = sorted(list(counter.items()), key = lambda e:e[1], reverse = True)
 for i in range(10):
     if sentences[i][0].strip() == '':
+    # 去掉换行符等干扰项，例如'\n'这种“诗句”。
         continue
     print('“{0}”出现了{1}次'.format(sentences[i][0], sentences[i][1]))
 
@@ -61,8 +63,10 @@ with open('23873-0.txt', encoding = 'utf-8') as shijing:
                 counter[sentence] = counter[sentence] + 1
             # 统计诗句出现次数，不计同一首诗歌中重复的部分。
             
+# 按诗句出现次数由高到低排序。
 sentences = sorted(list(counter.items()), key = lambda e:e[1], reverse = True)
 for i in range(10):
     if sentences[i][0].strip() == '':
         continue
+    # 去掉换行符等干扰项，例如'\n'这种“诗句”。
     print('“{0}”出现在{1}首诗中'.format(sentences[i][0], sentences[i][1]))
